@@ -11,10 +11,14 @@ const TopNav = ({ BsSearch, BsFillCaretDownFill }) => {
         className="text-[#0F1111] flex flex-1 p-1 overflow-hidden rounded-2xl"
       >
         <select
-          className=" bg-[#e6e6e6] p-1 w-[50px] outline-none"
+          className="bg-[#e6e6e6] p-1 outline-none"
+          defaultValue="All Departments"
           name="Categories"
         >
-          <option>All Departments</option>
+          <option value="All Departments" hidden disabled>
+            All
+          </option>
+          <option value="All Departments">All Departments</option>
           <option>Arts</option>
           <option>Baby</option>
           <option>Automotives</option>
