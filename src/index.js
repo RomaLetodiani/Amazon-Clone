@@ -1,4 +1,5 @@
 import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -7,9 +8,11 @@ import { ProductProvider } from './Contexts/ProductContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ProductProvider>
-    <HashRouter>
-      <App />
-    </HashRouter>
-  </ProductProvider>
+  <StrictMode>
+    <ProductProvider>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </ProductProvider>
+  </StrictMode>
 );
