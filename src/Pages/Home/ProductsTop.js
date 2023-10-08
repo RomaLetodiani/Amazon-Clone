@@ -1,28 +1,24 @@
 import React from 'react';
+import { ProductsTopImages } from '../../Components/Consts';
+import ProductsCard from '../../Components/ProductsCard';
+import ProductsCard4x4 from '../../Components/ProductsCard4x4';
 
 const ProductsTop = () => {
   return (
-    <div className="absolute top-[40%]">
-      <div>
-        <p>Toys Under $30</p>
-        <img alt="toys" />
-        <button>Shop now</button>
-      </div>
-      <div>
-        <p>Toys Under $30</p>
-        <img alt="toys" />
-        <button>Shop now</button>
-      </div>
-      <div>
-        <p>Toys Under $30</p>
-        <img alt="toys" />
-        <button>Shop now</button>
-      </div>
-      <div>
-        <p>Toys Under $30</p>
-        <img alt="toys" />
-        <button>Shop now</button>
-      </div>
+    <div className="hidden md:block">
+      {ProductsTopImages.map((products, index) => (
+        <div className="mb-5 flex gap-5 justify-around" key={index}>
+          {products.map((item, itemIndex) => (
+            <React.Fragment key={itemIndex}>
+              {index === 1 ? (
+                <ProductsCard4x4 item={item} />
+              ) : (
+                <ProductsCard item={item} />
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      ))}
     </div>
   );
 };

@@ -1,3 +1,103 @@
+//banner slider images
+import book from '../assets/images/HomeBanner/Books.jpg';
+import beauty from '../assets/images/HomeBanner/beauty.jpg';
+import gaming from '../assets/images/HomeBanner/Gaming.jpg';
+import kitchen from '../assets/images/HomeBanner/kitchen.jpg';
+import toys from '../assets/images/HomeBanner/toys.jpg';
+// ProductsTop single images
+import toy from '../assets/images/HomeTop/toys.jpg';
+import electronics from '../assets/images/HomeTop/electronics.jpg';
+import home_kitchen from '../assets/images/HomeTop/kitchen.jpg';
+import beautyPicks from '../assets/images/HomeTop/beauty.jpg';
+import tv from '../assets/images/HomeTop/tv.jpg';
+import health from '../assets/images/HomeTop/health.jpg';
+//gaming images
+import headset from '../assets/images/HomeTop/Gaming/headphones.jpg';
+import keyboard from '../assets/images/HomeTop/Gaming/Keyboard.jpg';
+import mouse from '../assets/images/HomeTop/Gaming/Mouse.jpg';
+import chair from '../assets/images/HomeTop/Gaming/Chair.jpg';
+//refresh images
+import dining from '../assets/images/HomeTop/refresh/1.jpg';
+import home from '../assets/images/HomeTop/refresh/2.jpg';
+import kit from '../assets/images/HomeTop/refresh/3.jpg';
+import HaB from '../assets/images/HomeTop/refresh/4.jpg';
+//fashion images
+import jeans from '../assets/images/HomeTop/Fashion/1.jpg';
+import tops from '../assets/images/HomeTop/Fashion/2.jpg';
+import dresses from '../assets/images/HomeTop/Fashion/3.jpg';
+import shoes from '../assets/images/HomeTop/Fashion/4.jpg';
+
+const slideImages = [book, beauty, gaming, kitchen, toys];
+
+const ProductsTopImages = [
+  [
+    {
+      title: 'Toys Under $30',
+      img: toy,
+      text: 'Shop Now',
+    },
+    {
+      title: 'Electronics',
+      img: electronics,
+      text: 'See More',
+    },
+    {
+      title: 'Home stuff Under $30',
+      img: home_kitchen,
+      text: 'Shop Now',
+    },
+  ],
+  [
+    {
+      title: 'Gaming accessories',
+      images: [
+        { name: 'Headsets', img: headset },
+        { name: 'Keyboards', img: keyboard },
+        { name: 'Computer mice', img: mouse },
+        { name: 'Chairs', img: chair },
+      ],
+      text: 'See More',
+    },
+    {
+      title: 'Shop deals in Fashion',
+      images: [
+        { name: 'Jeans under $50', img: jeans },
+        { name: 'Tops under $25', img: tops },
+        { name: 'Dresses under $30', img: dresses },
+        { name: 'Shoes under $50', img: shoes },
+      ],
+      text: 'See All Deals',
+    },
+    {
+      title: 'Refresh your space',
+      images: [
+        { name: 'Dining', img: dining },
+        { name: 'Home', img: home },
+        { name: 'Kitchen', img: kit },
+        { name: 'Health and Beauty', img: HaB },
+      ],
+      text: 'See More',
+    },
+  ],
+  [
+    {
+      title: 'Beauty picks',
+      img: beautyPicks,
+      text: 'Shop Now',
+    },
+    {
+      title: 'Find your ideal TV',
+      img: tv,
+      text: 'See More',
+    },
+    {
+      title: 'Health Care',
+      img: health,
+      text: 'Shop Now',
+    },
+  ],
+];
+
 const HeaderLi = [
   'All',
   "Today's Deals",
@@ -187,4 +287,11 @@ const FooterBottomLis = [
   ],
 ];
 
-export { HeaderLi, FooterTopLis, FooterBottomLis, FooterMobileLis };
+export {
+  slideImages,
+  ProductsTopImages,
+  HeaderLi,
+  FooterTopLis,
+  FooterBottomLis,
+  FooterMobileLis,
+};

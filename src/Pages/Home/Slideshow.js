@@ -1,21 +1,14 @@
 import React from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
-import book from '../../assets/images/HomeBanner/Books.jpg';
-import beauty from '../../assets/images/HomeBanner/beauty.jpg';
-import gaming from '../../assets/images/HomeBanner/Gaming.jpg';
-import kitchen from '../../assets/images/HomeBanner/kitchen.jpg';
-import toys from '../../assets/images/HomeBanner/toys.jpg';
 import styled from 'styled-components';
-
-const slideImages = [book, beauty, gaming, kitchen, toys];
+import { slideImages } from '../../Components/Consts';
 
 const Banners = styled.div`
   .ban {
     background-size: cover;
     background-repeat: no-repeat;
-    height: 37vw;
-    min-height: 150px;
+    height: clamp(150px, 37vw, 600px);
   }
   button {
     height: 40% !important;
