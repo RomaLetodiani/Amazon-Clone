@@ -5,6 +5,7 @@ const ProductContext = createContext();
 export const useData = () => useContext(ProductContext);
 
 export const ProductProvider = ({ children }) => {
+  const [loading, setLoading] = useState(true);
   const [productData, setProductData] = useState({
     products: [],
     mostDemandProducts: [],
@@ -31,15 +32,17 @@ export const ProductProvider = ({ children }) => {
           categories: responses[4].data,
         };
         setProductData(newData);
+        setLoading(false);
       })
       .catch((err) => {
         console.error(err);
+        setLoading(false);
       });
   }, []);
 
   const contextValues = {
     productData,
-    setProductData,
+    loading,
   };
   return (
     <ProductContext.Provider value={contextValues}>

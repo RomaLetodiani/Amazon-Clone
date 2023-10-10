@@ -7,12 +7,10 @@ const Home = () => {
   // const { productData } = useData();
 
   return (
-    <div className="bg-[#E3E6E6] text-[#0F1111]">
-      <div className="max-w-[1500px] m-auto w-full">
-        <Banner />
-        <div className="relative mt-[-80px] sm:mt-[-150px] lg:mt-[-250px] xl:mt-[-320px] p-5 ">
-          <ProductsTop />
-        </div>
+    <div className="text-[#0F1111]">
+      <Banner />
+      <div className="relative mt-[-80px] sm:mt-[-150px] lg:mt-[-250px] xl:mt-[-320px] p-5 ">
+        <ProductsTop />
       </div>
     </div>
   );

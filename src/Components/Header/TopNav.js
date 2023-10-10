@@ -2,14 +2,19 @@ import { useState } from 'react';
 import logo from '../../assets/amazon.png';
 import cart from '../../assets/cart.png';
 import Search from './Search';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const TopNav = ({ BsSearch, BsFillCaretDownFill }) => {
   const [selectedValue, setSelectedValue] = useState('');
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
 
   return (
     <nav className="bg-[#131921] px-5 py-4 ">
       <div className="flex items-center justify-between gap-5">
-        <img className="h-8" src={logo} alt="logo" />
+        <Link to="/">
+          <img className="h-8" src={logo} alt="logo" />
+        </Link>
         <div className="hidden md:block flex-1 w-full">
           <Search
             selectedValue={selectedValue}
@@ -29,11 +34,24 @@ const TopNav = ({ BsSearch, BsFillCaretDownFill }) => {
             <p className="text-sm">Returns</p>
             <p>& Orders</p>
           </div>
-          <div className="relative flex items-end">
-            <img src={cart} alt="cart" />
-            <p className="absolute text-[#f08804] top-[-2px] left-[19px]">0</p>
-            <p>Cart</p>
-          </div>
+          <Link to="/cart">
+            <div className="relative flex items-end">
+              <img src={cart} alt="cart" />
+              <p
+                className={`absolute text-[#f08804] top-[-2px] 
+                ${
+                  totalAmount > 99
+                    ? 'left-[14px] top-[0px] text-xs'
+                    : totalAmount > 9
+                    ? 'left-[15px] text-sm'
+                    : 'left-[19px] text-sm'
+                }`}
+              >
+                {totalAmount > 99 ? '99+' : totalAmount}
+              </p>
+              <p>Cart</p>
+            </div>
+          </Link>
         </div>
       </div>
       <div className="md:hidden mt-5">
