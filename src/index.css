@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
 * {
@@ -10,4 +13,22 @@
   box-sizing: border-box;
   font-family: 'PT Sans', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Scrollbar */
+/* Width and height of the scrollbar track */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Styles for the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #6b7280; /* Color of the thumb */
+  border-radius: 4px; /* Rounded corners for the thumb */
+}
+
+/* Styles for the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: #d1d5db; /* Color of the track */
 }

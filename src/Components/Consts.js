@@ -4,7 +4,8 @@ import beauty from '../assets/images/HomeBanner/beauty.jpg';
 import gaming from '../assets/images/HomeBanner/Gaming.jpg';
 import kitchen from '../assets/images/HomeBanner/kitchen.jpg';
 import toys from '../assets/images/HomeBanner/toys.jpg';
-// ProductsTop single images
+import bestSelling from '../assets/images/HomeBanner/bestSelling.jpg';
+//ProductsTop single images
 import toy from '../assets/images/HomeTop/toys.jpg';
 import electronics from '../assets/images/HomeTop/electronics.jpg';
 import home_kitchen from '../assets/images/HomeTop/kitchen.jpg';
@@ -26,8 +27,13 @@ import jeans from '../assets/images/HomeTop/Fashion/1.jpg';
 import tops from '../assets/images/HomeTop/Fashion/2.jpg';
 import dresses from '../assets/images/HomeTop/Fashion/3.jpg';
 import shoes from '../assets/images/HomeTop/Fashion/4.jpg';
+//homePageBottom images
+import watches from '../assets/images/HomeBottom/watches.jpg';
+import girls from '../assets/images/HomeBottom/girls.jpg';
+import pets from '../assets/images/HomeBottom/pets.jpg';
+import tools from '../assets/images/HomeBottom/tools.jpg';
 
-const slideImages = [book, beauty, gaming, kitchen, toys];
+const slideImages = [book, beauty, gaming, kitchen, toys, bestSelling];
 
 const ProductsTopImages = [
   [
@@ -96,6 +102,29 @@ const ProductsTopImages = [
       text: 'Shop Now',
     },
   ],
+];
+
+const ProductsBottomImages = [
+  {
+    title: 'Smartwatches',
+    img: watches,
+    text: 'See More',
+  },
+  {
+    title: 'Fashion trends',
+    img: girls,
+    text: 'Shop Now',
+  },
+  {
+    title: 'Pet supplies',
+    img: pets,
+    text: 'See More',
+  },
+  {
+    title: 'Deals in Tools',
+    img: tools,
+    text: 'Shop Now',
+  },
 ];
 
 const HeaderLi = [
@@ -294,4 +323,5 @@ export {
   FooterTopLis,
   FooterBottomLis,
   FooterMobileLis,
+  ProductsBottomImages,
 };

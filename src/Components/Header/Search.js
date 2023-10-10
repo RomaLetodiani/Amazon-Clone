@@ -20,6 +20,9 @@ const SearchForm = styled.form`
         border: none !important;
       }
     }
+    .css-1nmdiq5-menu {
+      z-index: 11;
+    }
   }
 `;
 

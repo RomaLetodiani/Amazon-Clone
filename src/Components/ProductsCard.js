@@ -2,9 +2,13 @@ import React from 'react';
 
 const ProductsCard = ({ item }) => {
   return (
-    <div className="w-[30%] p-[clamp(8px,2vw,25px)] bg-[#fff]">
-      <h3 className="font-bold text-lg">{item.title}</h3>
-      <img className="my-5" src={item.img} alt={item.title} />
+    <div className=" min-w-[240px] w-[30%] rounded-xl p-[clamp(8px,2vw,25px)] bg-[#fff]">
+      <h3 className="font-bold text-base md:text-lg">{item.title}</h3>
+      <img
+        className="my-5 min-w-[150px] w-full"
+        src={item.img}
+        alt={item.title}
+      />
       <p className="text-xs text-[#007185]">{item.text}</p>
     </div>
   );

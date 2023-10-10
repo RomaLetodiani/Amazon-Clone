@@ -7,7 +7,7 @@ const ProductsTop = () => {
   return (
     <div className="hidden md:block">
       {ProductsTopImages.map((products, index) => (
-        <div className="mb-5 flex gap-5 justify-around" key={index}>
+        <div className="mb-5 flex gap-5 justify-between" key={index}>
           {products.map((item, itemIndex) => (
             <React.Fragment key={itemIndex}>
               {index === 1 ? (

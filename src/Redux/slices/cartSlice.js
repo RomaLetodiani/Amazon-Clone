@@ -1,22 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  items: [
-    {
-      id: 1,
-      name: 'Razer Basilisk V3 Pro Customizable Wireless Gaming Mouse: Fast Optical Switches Gen-3 - HyperScroll Tilt Wheel - Chroma RGB - 11 Programmable Buttons - Focus Pro 30K Sen',
-      price: 120.31,
-      amount: 1,
-      image: 'https://m.media-amazon.com/images/I/81MwzahjhCL._AC_SX569_.jpg',
-    },
-    {
-      id: 2,
-      name: 'Razer Mouse Dock Pro with Wireless Charging Puck: Magneti',
-      price: 13.51,
-      amount: 1,
-      image: 'https://m.media-amazon.com/images/I/61RcqqmJBKL._AC_AA180_.jpg',
-    },
-  ],
+  items: [],
   cartTotal: 0,
   totalAmount: 0,
 };
