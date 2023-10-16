@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Amazon-Clone/static/css/main.0220ceee.css",
-    "main.js": "/Amazon-Clone/static/js/main.926cfdc9.js",
+    "main.css": "/Amazon-Clone/static/css/main.20afb013.css",
+    "main.js": "/Amazon-Clone/static/js/main.11f72475.js",
     "static/media/toys.jpg": "/Amazon-Clone/static/media/toys.64ec81ff3752d2c6fb44.jpg",
     "static/media/Gaming.jpg": "/Amazon-Clone/static/media/Gaming.4d36865f92d63b2519a7.jpg",
     "static/media/Books.jpg": "/Amazon-Clone/static/media/Books.805821d23a3f63566f17.jpg",
@@ -18,11 +18,11 @@
     "static/media/slick.ttf": "/Amazon-Clone/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/Amazon-Clone/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/Amazon-Clone/index.html",
-    "main.0220ceee.css.map": "/Amazon-Clone/static/css/main.0220ceee.css.map",
-    "main.926cfdc9.js.map": "/Amazon-Clone/static/js/main.926cfdc9.js.map"
+    "main.20afb013.css.map": "/Amazon-Clone/static/css/main.20afb013.css.map",
+    "main.11f72475.js.map": "/Amazon-Clone/static/js/main.11f72475.js.map"
   },
   "entrypoints": [
-    "static/css/main.0220ceee.css",
-    "static/js/main.926cfdc9.js"
+    "static/css/main.20afb013.css",
+    "static/js/main.11f72475.js"
   ]
 }
