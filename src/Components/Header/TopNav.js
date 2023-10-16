@@ -1,12 +1,13 @@
-import { useState } from 'react';
 import logo from '../../assets/amazon.png';
 import cart from '../../assets/cart.png';
 import Search from './Search';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useData } from '../../Contexts/ProductContext';
 
 const TopNav = ({ BsSearch, BsFillCaretDownFill }) => {
-  const [selectedValue, setSelectedValue] = useState('');
+  const { selectedValue, setSelectedValue } = useData();
+
   const totalAmount = useSelector((state) => state.cart.totalAmount);
 
   return (

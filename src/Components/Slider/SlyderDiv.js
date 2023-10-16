@@ -14,18 +14,18 @@ export const SliderDiv = styled.div`
 
     transition: all 0.6s ease-in-out;
     &::before {
-      font-size: 50px;
+      font-size: 40px;
       opacity: 0;
       color: #fff;
-      line-height: 3.4;
+      line-height: 4;
       transition: opacity 0.4s ease-in-out;
     }
   }
   .slick-prev {
-    left: -15px;
+    left: 0px;
   }
   .slick-next {
-    right: -15px;
+    right: 0px;
   }
   &:hover {
     button {

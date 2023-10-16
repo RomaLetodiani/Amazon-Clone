@@ -128,12 +128,24 @@ const ProductsBottomImages = [
 ];
 
 const HeaderLi = [
-  'All',
-  "Today's Deals",
-  'Customer Service',
-  'Registry',
-  'Gift Cards',
-  'Sell',
+  { name: 'All', url: '/' },
+  { name: "Today's Deals", url: '/shop' },
+  {
+    name: 'Customer Service',
+    url: 'https://www.amazon.com/gp/help/customer/display.html?nodeId=508510&ref_=nav_cs_customerservice',
+  },
+  {
+    name: 'Registry',
+    url: 'https://www.amazon.com/registries?ref_=nav_cs_registry&ref_=nav_cs_registry',
+  },
+  {
+    name: 'Gift Cards',
+    url: 'https://www.amazon.com/gift-cards/b/?ie=UTF8&node=2238192011&ref_=nav_cs_gc',
+  },
+  {
+    name: 'Sell',
+    url: 'https://www.amazon.com/b/?_encoding=UTF8&ld=AZUSSOA-sell&node=12766669011&ref_=nav_cs_sell',
+  },
 ];
 
 const FooterTopLis = [

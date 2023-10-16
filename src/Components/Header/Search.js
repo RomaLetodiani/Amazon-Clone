@@ -1,8 +1,10 @@
 import Select from 'react-select';
 import { useData } from '../../Contexts/ProductContext';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
-const SearchForm = styled.form`
+const SearchDiv = styled.div`
   color: #0f1111;
   padding: 0 20px;
   display: flex;
@@ -27,7 +29,9 @@ const SearchForm = styled.form`
 `;
 
 const Search = ({ BsSearch, selectedValue, setSelectedValue }) => {
+  const navigate = useNavigate();
   const { productData } = useData();
+  const [category, setCategory] = useState();
   const categories = productData.categories;
 
   const categoryOptions = categories.map((category) => ({
@@ -36,23 +40,30 @@ const Search = ({ BsSearch, selectedValue, setSelectedValue }) => {
   }));
 
   const handleSelectChange = (selectedOption) => {
-    setSelectedValue(selectedOption);
+    setCategory(selectedOption);
+  };
+
+  const handleCategoryFilter = (category) => {
+    setSelectedValue(category);
+    navigate('/shop');
+    setCategory('');
   };
 
   return (
-    <SearchForm action="submit">
+    <SearchDiv action="submit">
       <Select
-        value={selectedValue}
+        value={category}
         onChange={handleSelectChange}
         options={categoryOptions}
+        placeholder="Select A Category"
       />
       <button
         className="bg-[#febd69] rounded-r-lg border-l border-[#131921] h-[38px] hover:bg-[#f3a847] text-[#232f3e] outline-none p-3"
-        type="submit"
+        onClick={() => handleCategoryFilter(category.label)}
       >
         <BsSearch />
       </button>
-    </SearchForm>
+    </SearchDiv>
   );
 };
 

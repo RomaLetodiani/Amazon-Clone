@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeaderLi } from '../Consts';
+import { Link } from 'react-router-dom';
 
 const BottomNav = ({ BsList }) => {
   return (
@@ -10,7 +11,9 @@ const BottomNav = ({ BsList }) => {
       <ul className="flex gap-4 items-center text-center">
         {HeaderLi.map((item, index) => (
           <li className="cursor-pointer" key={index}>
-            {item}
+            <Link to={item.url} target={item.url.length > 10 ? '_blank' : ''}>
+              {item.name}
+            </Link>
           </li>
         ))}
       </ul>

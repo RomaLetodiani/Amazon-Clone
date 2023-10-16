@@ -9,28 +9,31 @@ import AllProductSlider from '../../Components/Slider/AllProductsSlider';
 const Home = () => {
   const { productData } = useData();
 
+  const renderProductSlider = (items, sliderTitle, sliderId) => (
+    <ProductSlider id={sliderId} items={items} sliderTitle={sliderTitle} />
+  );
+
   return (
     <div className="text-[#0F1111]">
       <Banner />
       <div className="relative mt-[-80px] sm:mt-[-150px] lg:mt-[-250px] xl:mt-[-320px] p-5 ">
         <ProductsTop />
-        <ProductSlider
-          items={productData.offers}
-          sliderTitle={'Exciting Deals'}
-        />
+        {renderProductSlider(productData.offers, 'Exciting Deals', 'offers')}
         <ProductsBottom />
-        <ProductSlider
-          items={productData.mostDemandProducts}
-          sliderTitle={'Most Demand Products'}
-        />
+        {renderProductSlider(
+          productData.mostDemandProducts,
+          'Most Demand Products',
+          'demand'
+        )}
         <AllProductSlider
           items={productData.products}
           sliderTitle={'New Customers Purchased'}
         />
-        <ProductSlider
-          items={productData.latestProducts}
-          sliderTitle={'Latest Products'}
-        />
+        {renderProductSlider(
+          productData.latestProducts,
+          'Latest Products',
+          'latest'
+        )}
       </div>
     </div>
   );

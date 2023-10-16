@@ -6,6 +6,8 @@ export const useData = () => useContext(ProductContext);
 
 export const ProductProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
+  const [selectedValue, setSelectedValue] = useState('');
+
   const [productData, setProductData] = useState({
     products: [],
     mostDemandProducts: [],
@@ -24,8 +26,22 @@ export const ProductProvider = ({ children }) => {
     ];
     Promise.all(endpointURLs.map((url) => axios.get(url)))
       .then((responses) => {
+        const categoriesData = responses[4].data.reduce(
+          (categoriesDict, category) => {
+            categoriesDict[category.id] = category;
+            return categoriesDict;
+          },
+          {}
+        );
+
+        // Associate products with their categories based on categoryId
+        const productsWithCategories = responses[0].data.map((product) => ({
+          ...product,
+          category: categoriesData[product.categoryId].name,
+        }));
+
         const newData = {
-          products: responses[0].data,
+          products: productsWithCategories,
           mostDemandProducts: responses[1].data,
           offers: responses[2].data,
           latestProducts: responses[3].data,
@@ -43,6 +59,8 @@ export const ProductProvider = ({ children }) => {
   const contextValues = {
     productData,
     loading,
+    selectedValue,
+    setSelectedValue,
   };
   return (
     <ProductContext.Provider value={contextValues}>
