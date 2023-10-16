@@ -28,7 +28,7 @@ const SearchDiv = styled.div`
   }
 `;
 
-const Search = ({ BsSearch, selectedValue, setSelectedValue }) => {
+const Search = ({ BsSearch, setSelectedValue }) => {
   const navigate = useNavigate();
   const { productData } = useData();
   const [category, setCategory] = useState();
@@ -43,9 +43,9 @@ const Search = ({ BsSearch, selectedValue, setSelectedValue }) => {
     setCategory(selectedOption);
   };
 
-  const handleCategoryFilter = (category) => {
-    setSelectedValue(category);
-    navigate('/shop');
+  const handleCategoryFilter = (categoryId) => {
+    setSelectedValue(categoryId);
+    navigate(`/shop/${categoryId}`);
     setCategory('');
   };
 
@@ -59,7 +59,7 @@ const Search = ({ BsSearch, selectedValue, setSelectedValue }) => {
       />
       <button
         className="bg-[#febd69] rounded-r-lg border-l border-[#131921] h-[38px] hover:bg-[#f3a847] text-[#232f3e] outline-none p-3"
-        onClick={() => handleCategoryFilter(category.label)}
+        onClick={() => handleCategoryFilter(category.value)}
       >
         <BsSearch />
       </button>

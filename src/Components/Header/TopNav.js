@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { useData } from '../../Contexts/ProductContext';
 
 const TopNav = ({ BsSearch, BsFillCaretDownFill }) => {
-  const { selectedValue, setSelectedValue } = useData();
+  const { setSelectedValue } = useData();
 
   const totalAmount = useSelector((state) => state.cart.totalAmount);
 
@@ -17,11 +17,7 @@ const TopNav = ({ BsSearch, BsFillCaretDownFill }) => {
           <img className="h-8" src={logo} alt="logo" />
         </Link>
         <div className="hidden md:block flex-1 w-full">
-          <Search
-            selectedValue={selectedValue}
-            setSelectedValue={setSelectedValue}
-            BsSearch={BsSearch}
-          />
+          <Search setSelectedValue={setSelectedValue} BsSearch={BsSearch} />
         </div>
         <div className="flex gap-5 leading-5 items-center">
           <div className="hidden md:block">
@@ -56,11 +52,7 @@ const TopNav = ({ BsSearch, BsFillCaretDownFill }) => {
         </div>
       </div>
       <div className="md:hidden mt-5">
-        <Search
-          selectedValue={selectedValue}
-          setSelectedValue={setSelectedValue}
-          BsSearch={BsSearch}
-        />
+        <Search setSelectedValue={setSelectedValue} BsSearch={BsSearch} />
       </div>
     </nav>
   );

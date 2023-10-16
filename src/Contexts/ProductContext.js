@@ -26,22 +26,8 @@ export const ProductProvider = ({ children }) => {
     ];
     Promise.all(endpointURLs.map((url) => axios.get(url)))
       .then((responses) => {
-        const categoriesData = responses[4].data.reduce(
-          (categoriesDict, category) => {
-            categoriesDict[category.id] = category;
-            return categoriesDict;
-          },
-          {}
-        );
-
-        // Associate products with their categories based on categoryId
-        const productsWithCategories = responses[0].data.map((product) => ({
-          ...product,
-          category: categoriesData[product.categoryId].name,
-        }));
-
         const newData = {
-          products: productsWithCategories,
+          products: responses[0].data,
           mostDemandProducts: responses[1].data,
           offers: responses[2].data,
           latestProducts: responses[3].data,

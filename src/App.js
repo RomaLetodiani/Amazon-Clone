@@ -22,10 +22,9 @@ const App = () => {
           <main className="max-w-[1500px] m-auto">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/shop">
-                <Route index element={<Shop />} />
-                <Route path=":category/:id" element={<ProductDetails />} />
-              </Route>
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/shop/:categoryId" element={<Shop />} />
+              <Route path="/shop/:category/:id" element={<ProductDetails />} />
               <Route path="/cart" element={<Cart />} />
             </Routes>
           </main>
