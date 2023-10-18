@@ -3,11 +3,11 @@ import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Home from './Pages/Home/Home';
 import Shop from './Pages/Shop/Shop';
-import ProductDetails from './Components/ProductDetails';
 import Cart from './Pages//Cart/Cart';
 import { Route, Routes } from 'react-router-dom';
 import { useData } from './Contexts/ProductContext';
 import Loading from './Components/Loading';
+import ProductDetails from './Components/ProductDetails/ProductDetails';
 
 const App = () => {
   const { loading } = useData();

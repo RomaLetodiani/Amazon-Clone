@@ -15,7 +15,8 @@ const SearchDiv = styled.div`
     .css-t3ipsp-control,
     .css-13cymwt-control {
       border-radius: 8px 0 0 8px !important;
-
+      flex-wrap: nowrap !important;
+      -webkit-flex-wrap: nowrap !important;
       outline: none !important;
       border: none !important;
       &:hover {
@@ -23,6 +24,7 @@ const SearchDiv = styled.div`
       }
     }
     .css-1nmdiq5-menu {
+      width: 200px;
       z-index: 11;
     }
   }
@@ -43,23 +45,25 @@ const Search = ({ BsSearch, setSelectedValue }) => {
     setCategory(selectedOption);
   };
 
-  const handleCategoryFilter = (categoryId) => {
-    setSelectedValue(categoryId);
-    navigate(`/shop/${categoryId}`);
-    setCategory('');
+  const handleCategoryFilter = (category) => {
+    const { value: id, label: name } = category;
+
+    setSelectedValue({ id, name });
+    const formattedName = name.replace(/\s+/g, '-').toLowerCase();
+    navigate(`/shop/${formattedName}`);
   };
 
   return (
-    <SearchDiv action="submit">
+    <SearchDiv>
       <Select
         value={category}
         onChange={handleSelectChange}
         options={categoryOptions}
-        placeholder="Select A Category"
+        placeholder="category"
       />
       <button
         className="bg-[#febd69] rounded-r-lg border-l border-[#131921] h-[38px] hover:bg-[#f3a847] text-[#232f3e] outline-none p-3"
-        onClick={() => handleCategoryFilter(category.value)}
+        onClick={() => handleCategoryFilter(category)}
       >
         <BsSearch />
       </button>

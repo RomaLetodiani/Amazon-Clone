@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ShopItemDiv = ({ item }) => {
+const ShopItem = ({ item }) => {
   return (
     <div className="text-[#0F1111] rounded-xl shadow-lg bg-[#fff] p-3 min-h-[272px] max-w-[180px] max-h-[300px]">
       <img
@@ -14,4 +14,4 @@ const ShopItemDiv = ({ item }) => {
   );
 };
 
-export default ShopItemDiv;
+export default ShopItem;
