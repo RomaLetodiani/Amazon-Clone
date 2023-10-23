@@ -8,7 +8,6 @@ import AllProductSlider from '../../Components/Slider/AllProductsSlider';
 
 const Home = () => {
   const { productData } = useData();
-  console.log(productData);
 
   const renderProductSlider = (items, sliderTitle, sliderId) => (
     <ProductSlider id={sliderId} items={items} sliderTitle={sliderTitle} />

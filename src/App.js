@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div className="w-full bg-[#E3E6E6] min-h-screen min-w-[280px]">
       {loading ? (
-        <Loading />
+        <Loading minH="min-h-screen" text="Amazon" />
       ) : (
         <>
           <Header />

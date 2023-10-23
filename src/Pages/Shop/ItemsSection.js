@@ -16,7 +16,7 @@ const ItemsSection = ({ filteredProducts }) => {
           })}
         </div>
       ) : (
-        <p className="bg-[#f8f8f8] rounded-lg shadow-lg p-5 max-[400px]:py-36 m-auto text-center text-lg">
+        <p className="bg-[#f7f7f7] shadow-xl md:max-w-full max-w-[240px] text-center text-xl rounded-lg p-5 m-auto">
           Sorry, There are currently no products available in this category
         </p>
       )}
