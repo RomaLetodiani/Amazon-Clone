@@ -1,14 +1,12 @@
 import logo from '../../assets/amazon.png';
-import cart from '../../assets/cart.png';
 import Search from './Search';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { useData } from '../../Contexts/ProductContext';
+import { BsSearch, BsFillCaretDownFill } from 'react-icons/bs';
+import CartDiv from './CartDiv';
 
-const TopNav = ({ BsSearch, BsFillCaretDownFill }) => {
+const TopNav = () => {
   const { setSelectedValue } = useData();
-
-  const totalAmount = useSelector((state) => state.cart.totalAmount);
 
   return (
     <nav className="bg-[#131921] px-5 py-4 ">
@@ -32,22 +30,7 @@ const TopNav = ({ BsSearch, BsFillCaretDownFill }) => {
             <p>& Orders</p>
           </div>
           <Link to="/cart">
-            <div className="relative flex items-end">
-              <img src={cart} alt="cart" />
-              <p
-                className={`absolute text-[#f08804] top-[-2px] 
-                ${
-                  totalAmount > 99
-                    ? 'left-[14px] top-[0px] text-xs'
-                    : totalAmount > 9
-                    ? 'left-[15px] text-sm'
-                    : 'left-[19px] text-sm'
-                }`}
-              >
-                {totalAmount > 99 ? '99+' : totalAmount}
-              </p>
-              <p>Cart</p>
-            </div>
+            <CartDiv />
           </Link>
         </div>
       </div>

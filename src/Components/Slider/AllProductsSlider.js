@@ -59,8 +59,8 @@ export default class AllProductSlider extends Component {
         <h2 className="text-[#0F1111] font-bold text-xl mb-3">{sliderTitle}</h2>
         <Slider {...settings}>
           {items.map((item) => (
-            <Link to={`/shop/${item.categoryId}/${item.id}`}>
-              <div key={item.id}>
+            <Link key={item.id} to={`/shop/${item.categoryId}/${item.id}`}>
+              <div>
                 <img
                   className="m-auto w-auto h-auto max-w-[270px] max-h-[200px] cover object-center aspect-square"
                   src={item.images[0]}

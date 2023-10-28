@@ -2,7 +2,7 @@ import React from 'react';
 import { HeaderLi } from '../Consts';
 import { Link } from 'react-router-dom';
 
-const BottomNav = ({ BsList }) => {
+const BottomNav = () => {
   return (
     <div className="flex items-center overflow-auto bg-[#232f3e] px-5 py-2">
       <ul className="flex gap-4 items-center text-center">

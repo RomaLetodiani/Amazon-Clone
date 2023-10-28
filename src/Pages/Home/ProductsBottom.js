@@ -6,7 +6,7 @@ const ProductsBottom = () => {
   return (
     <div className="flex overflow-x-auto scroll-mx-px my-2 py-1 gap-5">
       {ProductsBottomImages.map((item) => (
-        <ProductsCard key={item.title} item={item} />
+        <ProductsCard minW={true} key={item.title} item={item} />
       ))}
     </div>
   );

@@ -3,13 +3,10 @@ import CartItem from './CartItem';
 import SubTotalDiv from './SubTotalDiv';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTotal } from '../../Redux/slices/cartSlice';
-import ProductSlider from '../../Components/Slider/ProductSlider';
-import { useData } from '../../Contexts/ProductContext';
 import { Link } from 'react-router-dom';
+import RowSliders from '../../Components/Slider/RowSliders';
 
 const Cart = () => {
-  const { productData } = useData();
-
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -18,8 +15,8 @@ const Cart = () => {
   }, [dispatch, cart.items]);
 
   return (
-    <>
-      <div className="p-5 flex flex-col-reverse md:flex-row gap-5">
+    <div className="p-5 ">
+      <div className="flex flex-col-reverse md:flex-row gap-5">
         <div className="bg-[#fff] rounded-md flex-1 p-5">
           {cart.items.length > 0 ? (
             <>
@@ -64,17 +61,8 @@ const Cart = () => {
         </div>
         {cart.items.length > 0 && <SubTotalDiv cart={cart} />}
       </div>
-      <div className="w-full p-5">
-        <ProductSlider
-          items={productData.mostDemandProducts}
-          sliderTitle={'Most Demand Products'}
-        />
-        <ProductSlider
-          items={productData.latestProducts}
-          sliderTitle={'Latest Products'}
-        />
-      </div>
-    </>
+      <RowSliders />
+    </div>
   );
 };
 

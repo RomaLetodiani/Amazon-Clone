@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useData } from './Contexts/ProductContext';
 import Loading from './Components/Loading';
 import ProductDetails from './Components/ProductDetails/ProductDetails';
+import ErrorPage from './Pages/Error/ErrorPage';
 
 const App = () => {
   const { loading } = useData();
@@ -24,8 +25,12 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/shop/:categoryId" element={<Shop />} />
-              <Route path="/shop/:category/:id" element={<ProductDetails />} />
+              <Route
+                path="/shop/:categoryId/:id"
+                element={<ProductDetails />}
+              />
               <Route path="/cart" element={<Cart />} />
+              <Route path="*" element={<ErrorPage />} />
             </Routes>
           </main>
           <Footer />

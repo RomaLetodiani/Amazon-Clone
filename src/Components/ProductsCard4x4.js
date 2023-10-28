@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProductsCard4x4 = ({ item }) => {
   return (
-    <div className="w-[30%] rounded-xl p-[clamp(8px,2vw,25px)] bg-[#fff]">
+    <div className="w-[33%] rounded-xl p-[clamp(8px,2vw,25px)] bg-[#fff]">
       <h3 className="font-bold text-lg">{item.title}</h3>
       <div className="grid grid-cols-2 gap-4 my-5">
         {item.images.map((i, index) => (
