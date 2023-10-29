@@ -44,18 +44,22 @@ export default class ProductSlider extends Component {
     };
 
     return (
-      <SliderDiv>
-        <h2 className="text-[#0F1111] font-bold text-xl mb-3">{sliderTitle}</h2>
-        <Slider {...settings}>
-          {items.map((item) => (
-            <Link to={`/shop/${item.categoryId}/${item.id}`} key={item.id}>
-              <div>
-                <ItemDiv item={item} />
-              </div>
-            </Link>
-          ))}
-        </Slider>
-      </SliderDiv>
+      items.length > 0 && (
+        <SliderDiv>
+          <h2 className="text-[#0F1111] font-bold text-xl mb-3">
+            {sliderTitle}
+          </h2>
+          <Slider {...settings}>
+            {items.map((item) => (
+              <Link to={`/shop/${item.categoryId}/${item.id}`} key={item.id}>
+                <div>
+                  <ItemDiv item={item} />
+                </div>
+              </Link>
+            ))}
+          </Slider>
+        </SliderDiv>
+      )
     );
   }
 }

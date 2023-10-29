@@ -5,16 +5,18 @@ const RowSliders = () => {
   const { productData } = useData();
 
   return (
-    <div className="w-full">
-      <ProductSlider
-        items={productData.mostDemandProducts}
-        sliderTitle={'Most Demand Products'}
-      />
-      <ProductSlider
-        items={productData.latestProducts}
-        sliderTitle={'Latest Products'}
-      />
-    </div>
+    productData.lenght > 0 && (
+      <div className="w-full">
+        <ProductSlider
+          items={productData.mostDemandProducts}
+          sliderTitle={'Most Demand Products'}
+        />
+        <ProductSlider
+          items={productData.latestProducts}
+          sliderTitle={'Latest Products'}
+        />
+      </div>
+    )
   );
 };
 

@@ -48,12 +48,16 @@ const Cart = () => {
                   </p>
                 </Link>
                 <div className="flex gap-5 flex-col sm:flex-row">
-                  <button className="bg-[#FFD814] border shadow-md rounded-lg px-3 py-1 hover:bg-[#F7CA00] text-[#232f3e] outline-none">
-                    Sign in to your account
-                  </button>
-                  <button className="bg-[#FFF] border shadow-md rounded-lg px-3 py-1 hover:bg-[#F7FAFA] text-[#232f3e] outline-none">
-                    Sign up now
-                  </button>
+                  <Link to="/sign-in">
+                    <button className="bg-[#FFD814] border shadow-md rounded-lg px-3 py-1 hover:bg-[#F7CA00] text-[#232f3e] outline-none">
+                      Sign in to your account
+                    </button>
+                  </Link>
+                  <Link to="/sign-up">
+                    <button className="bg-[#FFF] border shadow-md rounded-lg px-3 py-1 hover:bg-[#F7FAFA] text-[#232f3e] outline-none">
+                      Sign up now
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

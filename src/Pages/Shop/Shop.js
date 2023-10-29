@@ -1,10 +1,8 @@
-import React from 'react';
 import { useData } from '../../Contexts/ProductContext';
 import CategoryBar from './CategoryBar';
 import ItemsSection from './ItemsSection';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
+import ErrorPage from '../Error/ErrorPage';
 
 const Shop = () => {
   const { productData, selectedValue, setSelectedValue } = useData();
@@ -54,7 +52,7 @@ const Shop = () => {
 
     setFilteredProducts(filteredItemsByPrice);
   };
-  return (
+  return productData.lenght > 0 ? (
     <div className="p-5 flex min-h-[500px] max-[400px]:flex-col max-w-5xl m-auto max-[400px]:justify-center items-start">
       <h1 className="text-xl m-auto mb-5 min-[401px]:hidden text-[#f08804] font-bold">
         {selectedValue ? selectedValue.name : 'All'}
@@ -67,6 +65,8 @@ const Shop = () => {
       />
       <ItemsSection filteredProducts={filteredProducts} />
     </div>
+  ) : (
+    <ErrorPage />
   );
 };
 

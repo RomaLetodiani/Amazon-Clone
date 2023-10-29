@@ -7,6 +7,7 @@ import { addItem, getTotal } from '../../Redux/slices/cartSlice';
 import ProductDetailsCards from './ProductDetailsCards';
 import ProductDesc from './ProductDesc';
 import RowSliders from '../Slider/RowSliders';
+import ErrorPage from '../../Pages/Error/ErrorPage';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -47,6 +48,7 @@ const ProductDetails = () => {
     e.preventDefault();
     // Handle the add to cart logic
     setAddingToCart(true);
+    // post async
     dispatch(addItem(product));
 
     dispatch(getTotal());
@@ -77,11 +79,7 @@ const ProductDetails = () => {
         </>
       )}
       {loading && <Loading minH="min-h-[500px]" text="Loading..." />}
-      {!product && !loading && (
-        <div className="bg-[#f7f7f7] shadow-xl lg:max-w-full max-w-[240px] text-center text-xl rounded-lg p-5 m-auto">
-          <h3>no item has been found on this Link, Please try another one</h3>
-        </div>
-      )}
+      {!product && !loading && <ErrorPage />}
     </div>
   );
 };

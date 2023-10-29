@@ -9,6 +9,10 @@ const SearchDiv = styled.div`
   padding: 0 20px;
   display: flex;
 
+  @media (max-width: 767px) {
+    padding: 0;
+  }
+
   .css-b62m3t-container {
     width: 100%;
     outline: none !important;
@@ -51,6 +55,7 @@ const Search = ({ BsSearch, setSelectedValue }) => {
     setSelectedValue({ id, name });
     const formattedName = name.replace(/\s+/g, '-').toLowerCase();
     navigate(`/shop/${formattedName}`);
+    setCategory('');
   };
 
   return (
