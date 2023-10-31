@@ -22,7 +22,7 @@ const ProductDetails = () => {
     setExpanded((prev) => !prev);
   };
 
-  const apiUrl = `https://amazon-digital-prod.azurewebsites.net/api/product/products/${id}`;
+  const apiUrl = `https://digitalinstitute-amazon.azurewebsites.net/api/product/products/${id}`;
 
   useEffect(() => {
     axios

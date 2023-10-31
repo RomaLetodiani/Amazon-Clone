@@ -52,7 +52,7 @@ const Shop = () => {
 
     setFilteredProducts(filteredItemsByPrice);
   };
-  return productData.lenght > 0 ? (
+  return productData ? (
     <div className="p-5 flex min-h-[500px] max-[400px]:flex-col max-w-5xl m-auto max-[400px]:justify-center items-start">
       <h1 className="text-xl m-auto mb-5 min-[401px]:hidden text-[#f08804] font-bold">
         {selectedValue ? selectedValue.name : 'All'}

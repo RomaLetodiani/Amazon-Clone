@@ -3,7 +3,7 @@ import { FooterBottomLis } from '../Consts';
 
 const Bottom = () => {
   return (
-    <div className="bg-[#131921] hidden lg:block py-10">
+    <div className="bg-[#131921] hidden min-[900px]:block py-10">
       <table className="max-w-5xl w-full m-auto border-spacing-8 border-separate">
         <tbody>
           {FooterBottomLis.map((item, index) => (
