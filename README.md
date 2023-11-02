@@ -1,7 +1,5 @@
 # Amazon Clone - React, Redux, Tailwind CSS
 
-![Project Image](https://www.linkedin.com/feed/update/urn:li:activity:7125982579119276033)
-
 A clone of the Amazon website built using React, Redux, Tailwind CSS, styled-components, and other technologies. This project includes various features such as user authentication, a shopping cart, product pages, and more.
 
 ## Table of Contents
