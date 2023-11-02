@@ -5,7 +5,7 @@ const RowSliders = () => {
   const { productData } = useData();
 
   return (
-    productData.lenght > 0 && (
+    productData && (
       <div className="w-full">
         <ProductSlider
           items={productData.mostDemandProducts}

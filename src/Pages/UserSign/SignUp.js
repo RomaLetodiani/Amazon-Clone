@@ -4,12 +4,41 @@ import { useState } from 'react';
 import Button from './Button';
 import Input from './Input';
 import { Link } from 'react-router-dom';
+import { useInput } from '../../hooks/use-input';
 
 const SignUp = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [Repassword, setRepassword] = useState('');
+  const {
+    value: userNameValue,
+    hasError: userNameHasError,
+    valueChangeHandler: userNameChangeHandler,
+    valueBlurHandler: userNameBlurHandler,
+  } = useInput((value) => value.trim() !== '');
+
+  const {
+    value: emailValue,
+    hasError: emailHasError,
+    valueChangeHandler: emailChangeHandler,
+    valueBlurHandler: emailBlurHandler,
+  } = useInput((value) => value.trim() !== '');
+
+  const {
+    value: password,
+    hasError: passwordHasError,
+    valueChangeHandler: passwordChangeHandler,
+    valueBlurHandler: passwordBlurHandler,
+  } = useInput((value) => value.trim() !== '');
+
+  const {
+    value: RePassword,
+    hasError: RePasswordHasError,
+    valueChangeHandler: RePasswordChangeHandler,
+    valueBlurHandler: RePasswordBlurHandler,
+  } = useInput((value) =>
+    password.length > 0 ? value === password : value.trim() !== ''
+  );
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showRePassword, setShowRePassword] = useState(false);
   return (
     <RegisterWrapper>
       <div className="flex-1 flex flex-col justify-center items-center m-5">
@@ -19,31 +48,51 @@ const SignUp = () => {
           </h2>
           <Input
             type="text"
-            name="Username"
+            name="username"
             placeholder="Username"
-            val={username}
-            setVal={setUsername}
+            val={userNameValue}
+            onChangeHandler={userNameChangeHandler}
+            onBlurHandler={userNameBlurHandler}
+            hasError={userNameHasError}
+            errorMessage="Username must not be empty"
           />
           <Input
             type="email"
             name="email"
             placeholder="Email"
-            val={email}
-            setVal={setEmail}
+            val={emailValue}
+            onChangeHandler={emailChangeHandler}
+            onBlurHandler={emailBlurHandler}
+            hasError={emailHasError}
+            errorMessage="Email must not be empty"
           />
           <Input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             name="password"
             placeholder="Password"
             val={password}
-            setVal={setPassword}
+            onChangeHandler={passwordChangeHandler}
+            onBlurHandler={passwordBlurHandler}
+            hasError={passwordHasError}
+            errorMessage="Password must not be empty"
+            setShowPassword={setShowPassword}
+            showPassword={showPassword}
           />
           <Input
-            type="password"
-            name="password"
-            placeholder="Re-enter Password"
-            val={Repassword}
-            setVal={setRepassword}
+            type={showRePassword ? 'text' : 'password'}
+            name="RePassword"
+            placeholder="Repeat Password"
+            val={RePassword}
+            onChangeHandler={RePasswordChangeHandler}
+            onBlurHandler={RePasswordBlurHandler}
+            hasError={RePasswordHasError}
+            errorMessage={`${
+              RePassword.length > 0
+                ? 'Passwords must be same'
+                : 'Re-Password must not be empty'
+            }`}
+            setShowPassword={setShowRePassword}
+            showPassword={showRePassword}
           />
 
           <Button />

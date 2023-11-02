@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
 import RegisterWrapper from './RegisterWrapper';
 import Button from './Button';
 import Input from './Input';
 import { Link } from 'react-router-dom';
+import { useInput } from '../../hooks/use-input';
+import { useState } from 'react';
 
 const SignIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const {
+    value: emailValue,
+    hasError: emailHasError,
+    valueChangeHandler: emailChangeHandler,
+    valueBlurHandler: emailBlurHandler,
+  } = useInput((value) => value.trim() !== '');
+
+  const {
+    value: password,
+    hasError: passwordHasError,
+    valueChangeHandler: passwordChangeHandler,
+    valueBlurHandler: passwordBlurHandler,
+  } = useInput((value) => value.trim() !== '');
+
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <RegisterWrapper>
@@ -18,17 +32,25 @@ const SignIn = () => {
             type="email"
             name="email"
             placeholder="Email"
-            val={email}
-            setVal={setEmail}
+            val={emailValue}
+            onChangeHandler={emailChangeHandler}
+            onBlurHandler={emailBlurHandler}
+            hasError={emailHasError}
+            errorMessage="Email must not be empty"
           />
           <Input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             name="password"
             placeholder="Password"
             val={password}
-            setVal={setPassword}
+            onChangeHandler={passwordChangeHandler}
+            onBlurHandler={passwordBlurHandler}
+            hasError={passwordHasError}
+            errorMessage="Password must not be empty"
+            setShowPassword={setShowPassword}
+            showPassword={showPassword}
           />
-          <p className="text-sm pl-3">
+          <p className="text-sm pl-3 mt-3">
             By continuing, you agree to Amazon's{' '}
             <a
               target="__blank"

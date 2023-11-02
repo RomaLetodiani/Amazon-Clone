@@ -6,7 +6,7 @@ const ItemsSection = ({ filteredProducts }) => {
   return (
     <>
       {filteredProducts.length > 0 ? (
-        <div className="grid max-[400px]:mx-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+        <div className="grid overflow-y-auto max-h-[600px] rounded-xl pr-2 max-[420px]:pr-1 max-[400px]:mx-auto min-[610px]:grid-cols-2 min-[800px]:grid-cols-3 lg:grid-cols-4 gap-3">
           {filteredProducts.map((item) => {
             return (
               <Link to={`/shop/${item.categoryId}/${item.id}`} key={item.id}>

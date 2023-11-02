@@ -9,7 +9,7 @@ const CategoryBar = ({
   handleCategoryFilter,
 }) => {
   return (
-    <nav className="max-[400px]:hidden min-w-[180px] mr-5 border-r-2 border-[#febd69]">
+    <nav className="max-[400px]:hidden min-w-[180px] mr-5 max-[420px]:mr-1 border-r-2 border-[#febd69]">
       <ul className="flex flex-col gap-3 font-bold">
         {productData.categories.map((item) => {
           const formattedName = item.name.replace(/\s+/g, '-').toLowerCase();

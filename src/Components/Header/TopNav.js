@@ -2,7 +2,7 @@ import logo from '../../assets/amazon.png';
 import Search from './Search';
 import { Link } from 'react-router-dom';
 import { useData } from '../../Contexts/ProductContext';
-import { BsSearch, BsFillCaretDownFill, BsPerson } from 'react-icons/bs';
+import { BsSearch, BsPerson } from 'react-icons/bs';
 import CartDiv from './CartDiv';
 
 const TopNav = () => {
@@ -22,10 +22,7 @@ const TopNav = () => {
           <div className="hidden md:block">
             <Link to="/sign-in">
               <p className="text-sm">Hello, sign in</p>
-              <p className="flex gap-2 items-end font-bold">
-                Accounts & Lists
-                <BsFillCaretDownFill className="text-[#a7acb2] text-xs mb-1" />
-              </p>
+              <p className="flex gap-2 items-end font-bold">Accounts & Lists</p>
             </Link>
           </div>
 
