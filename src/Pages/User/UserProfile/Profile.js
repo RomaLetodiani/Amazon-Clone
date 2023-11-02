@@ -25,15 +25,13 @@ const Profile = () => {
               / Profile
             </p>
           </div>
-          <div className="flex sm:items-start flex-col sm:flex-row gap-5">
-            <div className="bg-[#fff] sm:max-w-xs font-bold shadow-lg rounded-lg p-5">
+          <div className="flex flex-col md:flex-row gap-5">
+            <div className="bg-[#fff] md:max-w-xs font-bold shadow-lg rounded-lg p-5">
               <div className="flex  items-center gap-5">
                 <FaUserCircle className="text-5xl min-w-[50px]" />
                 <div>
-                  <h3 className="text-xl sm:text-3xl">
-                    Hello {user.unique_name}
-                  </h3>
-                  <p className="text-xs sm:text-sm max-w-[160px] sm:max-w-none">
+                  <h3 className="text-xl">Hello {user.unique_name}</h3>
+                  <p className="text-xs md:text-md max-w-[160px] md:max-w-none">
                     This is your profile page. You can see your information here
                   </p>
                 </div>
@@ -45,15 +43,23 @@ const Profile = () => {
                 Sign Out
               </button>
             </div>
-            <div className="bg-[#fff] font-bold shadow-lg rounded-lg p-5">
-              <h3 className="text-3xl">Email:</h3>
-              <p>{user.email}</p>
-              <h4 className="text-xl">Email Verification:</h4>
-              <p>Verified</p>
-              <h3 className="text-3xl">Username:</h3>
-              <p>{user.unique_name}</p>
-              <h3 className="text-3xl">Role:</h3>
-              <p>{user.role}</p>
+            <div className="bg-[#fff] leading-8 min-[400px]:leading-10 flex-1 font-bold shadow-lg rounded-lg p-5">
+              <div className="flex overflow-x-auto items-center gap-2">
+                <h3 className="min-[400px]:text-2xl">Email:</h3>
+                <p>{user.email}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <h4 className="min-[400px]:text-2xl">Verification:</h4>
+                <p>Verified</p>
+              </div>
+              <div className="flex items-center overflow-x-auto gap-2">
+                <h3 className="min-[400px]:text-2xl">Username:</h3>
+                <p>{user.unique_name}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <h3 className="min-[400px]:text-2xl">Role:</h3>
+                <p>{user.role}</p>
+              </div>
             </div>
           </div>
           <RowSliders />

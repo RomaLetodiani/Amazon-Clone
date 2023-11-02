@@ -1,6 +1,9 @@
 import React from 'react';
 
 const SubTotalDiv = ({ cart }) => {
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
   return (
     <form className="bg-[#fff] md:w-64 md:self-start sticky top-0 rounded-md flex flex-col p-5">
       <h3>
@@ -13,7 +16,10 @@ const SubTotalDiv = ({ cart }) => {
           This order contains a gift
         </label>
       </div>
-      <button className="bg-[#FFD814] rounded-lg p-2 hover:bg-[#f3a847] text-[#232f3e] outline-none">
+      <button
+        onClick={submitHandler}
+        className="bg-[#FFD814] rounded-lg p-2 hover:bg-[#f3a847] text-[#232f3e] outline-none"
+      >
         Proceed to Checkout
       </button>
     </form>

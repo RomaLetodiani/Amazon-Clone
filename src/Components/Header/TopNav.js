@@ -43,7 +43,7 @@ const TopNav = () => {
           </div>
 
           <div className="flex items-center gap-1 md:gap-0">
-            <Link to="/sign-in">
+            <Link to={`${user ? '/profile' : '/sign-in'}`}>
               <div className="flex gap-2 md:hidden items-center">
                 <p className="text-[#ffffff] max-[350px]:hidden text-sm">
                   Sign In &#62;
