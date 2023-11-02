@@ -11,6 +11,7 @@ const Input = ({
   onBlurHandler,
   showPassword,
   setShowPassword,
+  disabled,
 }) => {
   return (
     <div className="w-full mt-3 relative">
@@ -24,6 +25,7 @@ const Input = ({
         value={val}
         onChange={onChangeHandler}
         onBlur={onBlurHandler}
+        disabled={disabled}
       />
       {(name === 'password' || name === 'RePassword') && val.length > 0 && (
         <button
@@ -37,7 +39,7 @@ const Input = ({
         </button>
       )}
       {hasError && (
-        <p className="text-red-500 font-bold tracking-wider text-xs ml-3">
+        <p className="text-red-500 font-bold tracking-wider text-xs mt-1 ml-3">
           {errorMessage}
         </p>
       )}

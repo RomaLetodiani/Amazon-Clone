@@ -9,8 +9,9 @@ import { useData } from './Contexts/ProductContext';
 import Loading from './Components/Loading';
 import ProductDetails from './Components/ProductDetails/ProductDetails';
 import ErrorPage from './Pages/Error/ErrorPage';
-import SignIn from './Pages/UserSign/SignIn';
-import SignUp from './Pages/UserSign/SignUp';
+import SignIn from './Pages/User/UserSign/SignIn';
+import SignUp from './Pages/User/UserSign/SignUp';
+import Profile from './Pages/User/UserProfile/Profile';
 
 const App = () => {
   const { loading } = useData();
@@ -41,6 +42,7 @@ const App = () => {
               <Route path="/cart" element={<Cart />} />
               <Route path="/sign-in" element={<SignIn />} />
               <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="*" element={<ErrorPage />} />
             </Routes>
           </main>

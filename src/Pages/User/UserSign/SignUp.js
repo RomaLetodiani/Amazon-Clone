@@ -3,10 +3,13 @@ import RegisterWrapper from './RegisterWrapper';
 import { useState } from 'react';
 import Button from './Button';
 import Input from './Input';
-import { Link } from 'react-router-dom';
-import { useInput } from '../../hooks/use-input';
+import { Link, useNavigate } from 'react-router-dom';
+import { useInput } from '../../../hooks/use-input';
+import axios from 'axios';
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const {
     value: userNameValue,
     hasError: userNameHasError,
@@ -19,14 +22,14 @@ const SignUp = () => {
     hasError: emailHasError,
     valueChangeHandler: emailChangeHandler,
     valueBlurHandler: emailBlurHandler,
-  } = useInput((value) => value.trim() !== '');
+  } = useInput((value) => value.includes('@'));
 
   const {
     value: password,
     hasError: passwordHasError,
     valueChangeHandler: passwordChangeHandler,
     valueBlurHandler: passwordBlurHandler,
-  } = useInput((value) => value.trim() !== '');
+  } = useInput((value) => value.trim().length > 6);
 
   const {
     value: RePassword,
@@ -37,12 +40,80 @@ const SignUp = () => {
     password.length > 0 ? value === password : value.trim() !== ''
   );
 
+  const [signUpSuccess, setSignUpSuccess] = useState(null);
+  const [emailUsaged, setEmailUsed] = useState(null);
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    const formIsValid =
+      userNameValue.trim().length > 0 &&
+      emailValue.trim().length > 0 &&
+      password.trim().length > 0 &&
+      RePassword.trim().length > 0 &&
+      RePassword === password;
+
+    if (formIsValid) {
+      axios
+        .post(
+          'https://digitalinstitute-amazon.azurewebsites.net/api/user/getByEmail',
+          {
+            email: emailValue,
+          }
+        )
+        .then((response) => {
+          // Handle the success response here
+          console.log('Success (getByEmail):', response.data);
+
+          if (response.data.length === 0) {
+            // Email is not found, proceed with registration
+            axios
+              .post(
+                'https://digitalinstitute-amazon.azurewebsites.net/api/user/registerUser',
+                {
+                  userName: userNameValue,
+                  password: password,
+                  email: emailValue,
+                }
+              )
+              .then((registrationResponse) => {
+                // Handle the success response here
+                console.log(
+                  'Success (registerUser):',
+                  registrationResponse.data
+                );
+                setSignUpSuccess(true);
+                setTimeout(() => {
+                  navigate('/sign-in');
+                }, 1500);
+              })
+              .catch((registrationError) => {
+                // Handle registration errors
+                console.error('Registration Error:', registrationError);
+                setSignUpSuccess(false);
+              });
+          } else {
+            // Email is already in use, display an error message
+            console.error('Email is already in use');
+            setEmailUsed(false);
+          }
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the getEmail request
+          console.error('Error (getByEmail):', error);
+          setSignUpSuccess(false);
+        });
+    }
+  };
+
   const [showPassword, setShowPassword] = useState(false);
   const [showRePassword, setShowRePassword] = useState(false);
   return (
     <RegisterWrapper>
       <div className="flex-1 flex flex-col justify-center items-center m-5">
-        <form className="flex flex-col max-w-sm p-5 border-[#7187a1] border-2 rounded-3xl">
+        <form
+          onSubmit={submitHandler}
+          className="flex flex-col max-w-sm p-5 border-[#7187a1] border-2 rounded-3xl"
+        >
           <h2 className="text-[#232f3e] text-2xl font-bold pl-3">
             Create account
           </h2>
@@ -64,8 +135,13 @@ const SignUp = () => {
             onChangeHandler={emailChangeHandler}
             onBlurHandler={emailBlurHandler}
             hasError={emailHasError}
-            errorMessage="Email must not be empty"
+            errorMessage={'Email must include @ symbol'}
           />
+          {emailUsaged === false && !emailHasError && (
+            <p className="text-red-500 font-bold tracking-wider text-xs sm:text-sm sm:font-normal mt-1 ml-3">
+              Email is already in use
+            </p>
+          )}
           <Input
             type={showPassword ? 'text' : 'password'}
             name="password"
@@ -74,7 +150,7 @@ const SignUp = () => {
             onChangeHandler={passwordChangeHandler}
             onBlurHandler={passwordBlurHandler}
             hasError={passwordHasError}
-            errorMessage="Password must not be empty"
+            errorMessage="Type more then 6 characters."
             setShowPassword={setShowPassword}
             showPassword={showPassword}
           />
@@ -93,8 +169,19 @@ const SignUp = () => {
             }`}
             setShowPassword={setShowRePassword}
             showPassword={showRePassword}
+            disabled={passwordHasError || password.length === 0}
           />
-
+          {signUpSuccess === true && (
+            <p className=" font-bold tracking-wider text-xs sm:text-sm mt-2 ml-3">
+              Redirecting to Sign In...
+            </p>
+          )}
+          {signUpSuccess === false && (
+            <p className="text-red-500 tracking-wider text-sm sm:text-base sm:font-normal mt-1 ml-3">
+              Sorry we are not able to create your account right now, please try
+              again later
+            </p>
+          )}
           <Button />
           <p className="text-sm mt-3 pl-3">
             By creating an account, you agree to Amazon's{' '}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../assets/amazon.png';
+import Logo from '../../../assets/amazon.png';
 import { Link } from 'react-router-dom';
 
 const RegisterWrapper = ({ children }) => {

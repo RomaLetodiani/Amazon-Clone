@@ -5,10 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTotal } from '../../Redux/slices/cartSlice';
 import { Link } from 'react-router-dom';
 import RowSliders from '../../Components/Slider/RowSliders';
+import { useUser } from '../../Contexts/UserContext';
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
+  const { user } = useUser();
 
   useEffect(() => {
     dispatch(getTotal());
@@ -48,16 +51,26 @@ const Cart = () => {
                   </p>
                 </Link>
                 <div className="flex gap-5 flex-col sm:flex-row">
-                  <Link to="/sign-in">
-                    <button className="bg-[#FFD814] border shadow-md rounded-lg px-3 py-1 hover:bg-[#F7CA00] text-[#232f3e] outline-none">
-                      Sign in to your account
-                    </button>
-                  </Link>
-                  <Link to="/sign-up">
-                    <button className="bg-[#FFF] border shadow-md rounded-lg px-3 py-1 hover:bg-[#F7FAFA] text-[#232f3e] outline-none">
-                      Sign up now
-                    </button>
-                  </Link>
+                  {!user ? (
+                    <>
+                      <Link to="/sign-in">
+                        <button className="bg-[#FFD814] border shadow-md rounded-lg px-3 py-1 hover:bg-[#F7CA00] text-[#232f3e] outline-none">
+                          Sign in to your account
+                        </button>
+                      </Link>
+                      <Link to="/sign-up">
+                        <button className="bg-[#FFF] border shadow-md rounded-lg px-3 py-1 hover:bg-[#F7FAFA] text-[#232f3e] outline-none">
+                          Sign up now
+                        </button>
+                      </Link>
+                    </>
+                  ) : (
+                    <Link to="/profile">
+                      <button className="bg-[#FFF] border shadow-md rounded-lg px-3 py-1 hover:bg-[#F7FAFA] text-[#232f3e] outline-none">
+                        view your Profile
+                      </button>
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
