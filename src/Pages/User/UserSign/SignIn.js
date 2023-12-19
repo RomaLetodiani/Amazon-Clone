@@ -47,7 +47,7 @@ const SignIn = () => {
     if (formIsValid) {
       axios
         .post(
-          'https://digitalinstitute-amazon.azurewebsites.net/api/user/login',
+          'https://ngglobalwebapi20231210182820.azurewebsites.net/api/User/LogIn',
           {
             email: emailValue,
             password: password,

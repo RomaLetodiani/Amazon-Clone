@@ -55,7 +55,7 @@ const SignUp = () => {
     if (formIsValid) {
       axios
         .post(
-          'https://digitalinstitute-amazon.azurewebsites.net/api/user/getByEmail',
+          'https://ngglobalwebapi20231210182820.azurewebsites.net/api/user/getByEmail',
           {
             email: emailValue,
           }
@@ -68,7 +68,7 @@ const SignUp = () => {
             // Email is not found, proceed with registration
             axios
               .post(
-                'https://digitalinstitute-amazon.azurewebsites.net/api/user/registerUser',
+                'https://ngglobalwebapi20231210182820.azurewebsites.net/api/user/registerUser',
                 {
                   userName: userNameValue,
                   password: password,

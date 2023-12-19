@@ -18,11 +18,11 @@ export const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     const endpointURLs = [
-      'https://digitalinstitute-amazon.azurewebsites.net/api/product/products',
-      'https://digitalinstitute-amazon.azurewebsites.net/api/product/mostdemandproducts',
-      'https://digitalinstitute-amazon.azurewebsites.net/api/product/offers',
-      'https://digitalinstitute-amazon.azurewebsites.net/api/product/latestproducts',
-      'https://digitalinstitute-amazon.azurewebsites.net/api/product/categories',
+      'https://ngglobalwebapi20231210182820.azurewebsites.net/api/product/products',
+      'https://ngglobalwebapi20231210182820.azurewebsites.net/api/product/mostdemandproducts',
+      'https://ngglobalwebapi20231210182820.azurewebsites.net/api/product/offers',
+      'https://ngglobalwebapi20231210182820.azurewebsites.net/api/product/latestproducts',
+      'https://ngglobalwebapi20231210182820.azurewebsites.net/api/product/categories',
     ];
     Promise.all(endpointURLs.map((url) => axios.get(url)))
       .then((responses) => {

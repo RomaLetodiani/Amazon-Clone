@@ -46,7 +46,11 @@ const TopNav = () => {
             <Link to={`${user ? '/profile' : '/sign-in'}`}>
               <div className="flex gap-2 md:hidden items-center">
                 <p className="text-[#ffffff] max-[350px]:hidden text-sm">
-                  Sign In &#62;
+                  {user
+                    ? user.unique_name.length > 5
+                      ? user.unique_name.slice(0, 5) + '...'
+                      : user.unique_name
+                    : 'Sign In >'}
                 </p>
                 <BsPerson className="text-[#ffffff] text-3xl" />
               </div>
